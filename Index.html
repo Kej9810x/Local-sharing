@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYS_NEXUS // Local File Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+
+    <div id="auth-overlay" class="overlay">
+        <div class="console-panel auth-box">
+            <h2>> INITIALIZE_SESSION</h2>
+            <div class="input-group">
+                <label for="session-name">SESSION_ID:</label>
+                <input type="text" id="session-name" placeholder="Enter session name..." autocomplete="off">
+            </div>
+            <div class="input-group">
+                <label for="session-pin">ACCESS_PIN:</label>
+                <input type="password" id="session-pin" placeholder="Enter security PIN..." autocomplete="off">
+            </div>
+            <button id="start-btn" class="cyber-btn">> CONNECT</button>
+        </div>
+    </div>
+
+    <div id="dashboard" class="container hidden">
+        <header class="dashboard-header console-panel">
+            <h1>> SYS_NEXUS // FILE_EXCHANGE_TERMINAL</h1>
+        </header>
+
+        <div class="dashboard-grid">
+            <aside class="console-panel" id="status-panel">
+                <h3>> SYSTEM_STATUS</h3>
+                <div class="status-item">
+                    <span>SERVER:</span> <span class="text-glow-green">ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span>SESSION:</span> <span id="status-session" class="text-glow-blue">...</span>
+                </div>
+                <div class="status-item">
+                    <span>TOTAL FILES:</span> <span id="status-count">0</span>
+                </div>
+                <div class="status-item">
+                    <span>STORAGE FREE:</span> <span id="status-storage">Calculating...</span>
+                </div>
+            </aside>
+
+            <section class="console-panel" id="upload-panel">
+                <h3>> UPLOAD_LINK</h3>
+                <div id="drop-zone" class="drop-zone">
+                    <span class="drop-text">DRAG & DROP SECURE FILES HERE</span>
+                    <span class="drop-subtext">OR</span>
+                    <label for="file-input" class="cyber-btn">> BROWSE_LOCAL</label>
+                    <input type="file" id="file-input" multiple hidden>
+                </div>
+                <div id="progress-container" class="progress-wrapper hidden">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </section>
+
+            <section class="console-panel" id="explorer-panel">
+                <div class="explorer-header">
+                    <h3>> DIRECTORY_LISTING</h3>
+                    <div class="explorer-controls">
+                        <input type="text" id="search-input" placeholder="> FILTER_FILES...">
+                        <button id="refresh-btn" class="cyber-btn">> REFRESH</button>
+                    </div>
+                </div>
+                <div id="file-grid" class="file-grid">
+                    </div>
+            </section>
+
+            <aside class="console-panel" id="log-panel">
+                <h3>> ACTIVITY_LOG</h3>
+                <div id="log-container" class="log-list">
+                    </div>
+            </aside>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
